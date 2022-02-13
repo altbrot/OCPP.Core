@@ -78,7 +78,8 @@
 				OCPP-J2.0
 			</option>
 		</select>
-		<input id="CP" type="text" placeholder="ChargePoint ID" value="ws://localhost:8081/OCPP/TestAAA" />
+		<input id="CP" type="text" placeholder="ChargePoint ID" value="wss://user1:pw1@localhost:5001/ocpp/e2445762-25c1-4055-9548-a7b19da2d8ad" />
+		<!-- <input id="CP" type="text" placeholder="ChargePoint ID" value="ws://localhost:8081/OCPP/TestAAA" /> -->
 		<button id="connect">Connect</button>
 		<button id="send">Authorize</button>
 		<button id="start">Start Transaction - EVDetected</button>
@@ -174,7 +175,8 @@
 					$('#red').show();
 					_websocket.close(3001);
 				} else {
-					_websocket = new WebSocket(wsurl + "" + CP, ["ocpp2.0", "ocpp1.5"]);
+					_websocket = new WebSocket(wsurl + "" + CP, ["ocpp2.0.1", "ocpp2.0", "ocpp1.5"]);
+					//_websocket = new WebSocket(wsurl + "" + CP, ["ocpp2.0", "ocpp1.5"]);
 					_websocket.onopen = function(authorizationData) {
 
 						sessionStorage.setItem('LastAction', "BootNotification");
